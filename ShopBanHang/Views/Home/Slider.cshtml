@@ -1,0 +1,46 @@
+﻿@model List<ShopBanHang.Models.tblSlide>
+<div class="col medium-9 small-12 large-9">
+    <div class="col-inner">
+        <div class="slider-wrapper relative" id="slider-895841192">
+            <div class="slider slider-nav-simple slider-nav-normal slider-nav-light slider-style-normal"
+                 data-flickity-options='{
+										"cellAlign": "center",
+										"imagesLoaded": true,
+										"lazyLoad": 1,
+										"freeScroll": false,
+										"wrapAround": true,
+										"autoPlay": 6000,
+										"pauseAutoPlayOnHover" : true,
+										"prevNextButtons": true,
+										"contain" : true,
+										"adaptiveHeight" : true,
+										"dragThreshold" : 10,
+										"percentPosition": true,
+										"pageDots": true,
+										"rightToLeft": false,
+										"draggable": true,
+										"selectedAttraction": 0.1,
+										"parallax" : 0,
+										"friction": 0.6}'>
+                @if (Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                        <div class="img has-hover x md-x lg-x y md-y lg-y" id="image_1349624217">
+                            <div class="img-inner image-cover dark" style="padding-top:402px;">
+                                <img width="650" height="400"
+                                     src="Content/wp-content/themes/flatsome/assets/img/lazy.png"
+                                     data-src="Content/wp-content/uploads/2021/01/@item.ImageUrl"
+                                     class="lazy-load attachment-original size-original"
+                                     alt="" srcset=""
+                                     sizes="(max-width: 650px) 100vw, 650px">
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+            <div class="loading-spin dark large centered"></div>
+            <style scope="scope"></style>
+        </div>
+    </div>
+</div>

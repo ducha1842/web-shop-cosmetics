@@ -1,0 +1,63 @@
+﻿@model ShopBanHang.Models.tblMenu_Web
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var lstMenuWeb = (List<ShopBanHang.Models.tblMenu_Web>)ViewBag.Menu;
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="card">
+        <div class="card-header">
+            <h5>Chỉnh sửa thông tin MenuWeb</h5>
+            @*<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>*@
+        </div>
+        <div class="card-body table-border-style">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Tên menu: <span class="label-required">*</span></label>
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Chức menu cha: <span class="label-required">*</span></label>
+                        @if (lstMenuWeb != null)
+                        {
+                            @Html.DropDownListFor(n => n.ParentID, new SelectList(lstMenuWeb, "ID", "Name"), "Menu Root", new { @class = "form-control", Name = "cboMenu" })
+                            @Html.ValidationMessageFor(model => model.ParentID, "", new { @class = "text-danger" })
+                        }
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Url hiển thị: <span class="label-required">*</span></label>
+                        @Html.EditorFor(model => model.Url, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Url, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Sắp xếp: <span class="label-required">*</span></label>
+                        @Html.EditorFor(model => model.OrderNumber, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.OrderNumber, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group" style="margin-top: .5rem;">
+                        <br />
+                        <input type="submit" value="Ghi dữ liệu" class="btn btn-success" />
+                        <button class="btn btn-light">@Html.ActionLink("Quay lại", "Index")</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+}

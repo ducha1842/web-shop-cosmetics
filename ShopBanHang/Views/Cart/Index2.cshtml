@@ -1,0 +1,223 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var model = (List<ShopBanHang.Models.CartItem>)Session["Cart"];
+    int i = 1;
+}
+
+<div id="content" class="content-area page-wrapper" role="main">
+    <div class="row row-main">
+        <div class="large-12 col">
+            <div class="col-inner">
+                <div class="woocommerce">
+                    <div class="woocommerce-notices-wrapper"></div><div class="woocommerce row row-large row-divided">
+                        <div class="col large-7 pb-0 ">
+                            <form class="woocommerce-cart-form" action="https://shoplamdep.haiphongweb.com/gio-hang/" method="post">
+                                <div class="cart-wrapper sm-touch-scroll">
+                                    <table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th class="product-name" colspan="3">Sản phẩm</th>
+                                                <th class="product-price">Giá</th>
+                                                <th class="product-quantity">Số lượng</th>
+                                                <th class="product-subtotal">Tổng</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            @if (model != null)
+                                            {
+                                                foreach (var item in model)
+                                                {
+                                                    <tr class="woocommerce-cart-form__cart-item cart_item">
+                                                        <td class="product-remove">
+                                                            <a href="" class="remove" aria-label="Xóa sản phẩm này" data-product_id="526" data-product_sku="">×</a>
+                                                        </td>
+                                                        <td class="product-thumbnail">
+                                                            <a href="https://shoplamdep.haiphongweb.com/san-pham/son-li-maybelline-chilli-nude-3-9g-color-sensational-inti-matte-nudes-lipstick/">
+                                                                <img width="300" height="300" src="~/Content/wp-content/uploads/2021/01/@item.ImageUrl" data-src="~/Content/wp-content/uploads/2021/01/@item.ImageUrl"
+                                                                     class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail lazy-load-active" alt=""
+                                                                     srcset="~/Content/wp-content/uploads/2021/01/@item.ImageUrl 300w,
+                                                                    ~/Content/wp-content/uploads/2021/01/@item.ImageUrl 150w,
+                                                                    ~/Content/wp-content/uploads/2021/01/@item.ImageUrl 100w"
+                                                                     data-srcset="~/Content/wp-content/uploads/2021/01/@item.ImageUrl 300w,
+                                                                    ~/Content/wp-content/uploads/2021/01/@item.ImageUrl 150w,
+                                                                    ~/Content/wp-content/uploads/2021/01/@item.ImageUrl 100w"
+                                                                     sizes="(max-width: 300px) 100vw, 300px">
+                                                            </a>
+                                                        </td>
+                                                        <td class="product-name" data-title="Sản phẩm">
+                                                            <a href="" id="txtName_@i">@item.Name</a>
+                                                            <div class="show-for-small mobile-product-price">
+                                                                <span class="mobile-product-price__qty">@item.Quantity x </span>
+                                                                <span class="woocommerce-Price-amount amount">@item.Price<span class="woocommerce-Price-currencySymbol">₫</span></span>
+                                                            </div>
+                                                        </td>
+                                                        <td class="product-price" data-title="Giá">
+                                                            <span class="woocommerce-Price-amount amount" id="txtPrice_@i">@item.Price ₫</span>
+                                                            @*<span class="woocommerce-Price-currencySymbol">₫</span>*@
+                                                        </td>
+                                                        <td class="product-quantity" data-title="Số lượng">
+                                                            <div class="quantity buttons_added">
+                                                                <input type="button" id="txtMinus_@i" value="-" class="minus button is-form" onclick="MinusCart(this.id)">
+                                                                <label class="screen-reader-text" for="quantity_6129ebfe82854">@item.Name số lượng</label>
+                                                                <input type="number" id="txtQuantity_@i" class="input-text qty text" step="1" min="0" max="9999" onkeyup="AddCart(this.id)" name="cart[85422afb467e9456013a2a51d4dff702][qty]" value="@item.Quantity" title="SL" size="4" inputmode="numeric">
+                                                                <input type="button" id="txtPlus_@i" value="+" class="plus button is-form" onclick="PlusCart(this.id)">
+                                                            </div>
+                                                        </td>
+                                                        <td class="product-subtotal" data-title="Tổng">
+                                                            <span class="woocommerce-Price-amount amount" id="txtTotal_@i">
+                                                                @(item.Quantity * item.Price)₫
+                                                                @*<span class="woocommerce-Price-currencySymbol">₫</span>*@
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    i++;
+                                                }
+                                            }
+                                            <tr>
+                                                <td colspan="6" class="actions clear">
+                                                    <div class="continue-shopping pull-left text-left">
+                                                        <a class="button-continue-shopping button primary is-outline" href="~/">
+                                                            ← Tiếp tục xem sản phẩm
+                                                        </a>
+                                                    </div>
+                                                    <button type="submit" class="button primary mt-0 pull-left small" name="update_cart" value="Cập nhật giỏ hàng" disabled="">Cập nhật giỏ hàng</button>
+                                                    <input type="hidden" id="woocommerce-cart-nonce" name="woocommerce-cart-nonce" value="560c81f81f"><input type="hidden" name="_wp_http_referer" value="/gio-hang/">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="cart-collaterals large-5 col pb-0">
+                            <div class="cart-sidebar col-inner ">
+                                <div class="cart_totals ">
+                                    <table cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th class="product-name" colspan="2" style="border-width:3px;">Cộng giỏ hàng</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                    <h2>Cộng giỏ hàng</h2>
+                                    <table cellspacing="0" class="shop_table shop_table_responsive">
+                                        <tbody>
+                                            <tr class="cart-subtotal">
+                                                <th>Tạm tính</th>
+                                                <td data-title="Tạm tính">
+                                                    <span id="txtTotaCartNotSale" class="woocommerce-Price-amount amount">
+                                                        @Session["TotalMoney"] ₫
+                                                        @*<span class="woocommerce-Price-currencySymbol">₫</span>*@
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr class="order-total">
+                                                <th>Tổng</th>
+                                                <td data-title="Tổng">
+                                                    <span id="txtTotaCart" class="woocommerce-Price-amount amount">
+                                                        @Session["TotalMoney"] ₫
+                                                        @*<span class="woocommerce-Price-currencySymbol">₫</span>*@
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="wc-proceed-to-checkout">
+                                        <a href="#" class="checkout-button button alt wc-forward" onclick="CheckOut()">
+                                            Tiến hành thanh toán
+                                        </a>
+                                    </div>
+                                </div>
+                                <form class="checkout_coupon mb-0" method="post">
+                                    <div class="coupon">
+                                        <h3 class="widget-title"><i class="icon-tag"></i> Phiếu ưu đãi</h3><input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="Mã ưu đãi"> <input type="submit" class="is-form expand" name="apply_coupon" value="Áp dụng">
+                                    </div>
+                                </form>
+                                <div class="cart-sidebar-content relative"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cart-footer-content after-cart-content relative"></div>
+                </div>
+            </div><!-- .col-inner -->
+        </div><!-- .large-12 -->
+    </div><!-- .row -->
+</div>
+
+
+<script type="text/javascript">
+    var total = @Session["TotalProduct"];
+
+    function CheckOut() {
+        var arr = [];
+        var jsdata = "{id: '', name: ''}";
+        for (var i = 1; i <= total; i++) {
+            var jsonObj = { id: "id", Name: "name", Price: "price", Quantity: "quantity" };
+            jsonObj.id = i;
+            jsonObj.Name = document.getElementById("txtName_" + i).innerHTML;
+            jsonObj.Price = document.getElementById("txtPrice_" + i).innerHTML.replace(" ₫", "");
+            jsonObj.Quantity = document.getElementById("txtQuantity_" + i).value;
+            arr.push(jsonObj);
+        }
+        console.log(arr);
+
+        jQuery.ajax({
+            type: "POST",
+            url: "@Url.Action("CheckOutCart", "Cart")",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(arr),
+            dataType: "json",
+            success: function (result) {
+
+            }
+        });
+    }
+
+    function AddCart(id) {
+        var idProduct = id.replace("txtQuantity_", "");
+        //So luong
+        var Quantity = document.getElementById(id).value;
+        var Price = document.getElementById("txtPrice_" + idProduct).innerHTML.replace(" ₫", "");
+        var Total = document.getElementById("txtTotal_" + idProduct);
+        Total.innerHTML = (Quantity * parseFloat(Price)) + " ₫";
+        CalTotal();
+    }
+
+    function PlusCart(id) {
+        var idProduct = id.replace("txtPlus_", "");
+        var Quantity = document.getElementById("txtQuantity_" + idProduct).value;
+        Quantity = parseInt(Quantity) + 1;
+        var Price = document.getElementById("txtPrice_" + idProduct).innerHTML.replace(" ₫", "");
+        var Total = document.getElementById("txtTotal_" + idProduct);
+        Total.innerHTML = (Quantity * parseFloat(Price)) + " ₫";
+        CalTotal();
+    }
+
+    function MinusCart(id) {
+        var idProduct = id.replace("txtMinus_", "");
+        var Quantity = document.getElementById("txtQuantity_" + idProduct).value;
+        if (parseInt(Quantity) > 0) {
+            Quantity = parseInt(Quantity) - 1;
+            var Price = document.getElementById("txtPrice_" + idProduct).innerHTML.replace(" ₫", "");
+            var Total = document.getElementById("txtTotal_" + idProduct);
+            Total.innerHTML = (Quantity * parseFloat(Price)) + " ₫";
+        }
+        CalTotal();
+    }
+
+    function CalTotal() {
+        var TotalCartNotSale = document.getElementById("txtTotaCartNotSale");
+        var TotalCart = document.getElementById("txtTotaCart");
+        var TotalValue = 0;
+        for (var i = 1; i <= total; i++) {
+            var GiaTri = document.getElementById("txtTotal_" + (i).toString()).innerHTML.replace(" ₫", "");
+            TotalValue = TotalValue + parseFloat(GiaTri);
+        }
+        TotalCartNotSale.innerHTML = TotalValue + " đ";
+        TotalCart.innerHTML = TotalValue + " đ";
+    }
+
+</script>

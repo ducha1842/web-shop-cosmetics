@@ -1,0 +1,123 @@
+﻿@model List<ShopBanHang.Models.tblProduct>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<section class="section row-sp deal-hot" id="section_289245873">
+    <div class="bg section-bg fill bg-fill  bg-loaded">
+    </div><!-- .section-bg -->
+    <div class="section-content relative">
+
+        <div class="container section-title-container">
+            <h3 class="section-title section-title-normal">
+                <b></b><span class="section-title-main">
+                    DEAL HOT Đang diễn ra
+                </span><b></b><a href="#" target="">
+                    Xem thêm<i class="fas fa-angle-right"></i>
+                </a>
+            </h3>
+        </div><!-- .section-title -->
+        <div class="row large-columns-6 medium-columns-3 small-columns-2 row-collapse slider row-slider slider-nav-simple slider-nav-outside slider-nav-push"
+             data-flickity-options='{"imagesLoaded": true, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": true,"prevNextButtons": true,"percentPosition": true,"pageDots": false, "rightToLeft": false, "autoPlay" : false}'>
+
+            @if (Model != null && Model.Count > 0)
+            {
+                foreach (var item in Model)
+                {
+                    <div class="col">
+                        <div class="col-inner">
+                            <div class="badge-container absolute left top z-1">
+                                <div class="callout badge badge-square">
+                                    <div class="badge-inner secondary on-sale">
+                                        <span class="onsale">-@item.Sale%</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-small box has-hover box-normal box-text-bottom">
+                                <div class="box-image">
+                                    <div class="image-overlay-add image-zoom image-cover"
+                                         style="padding-top:100%;">
+                                        <a href="san-pham/@item.Brand-@item.ProductID">
+                                            <img width="358" height="358"
+                                                 src="Content/wp-content/themes/flatsome/assets/img/lazy.png"
+                                                 data-src="Content/wp-content/uploads/2021/01/@item.ImageUrl"
+                                                 class="lazy-load attachment-original size-original" alt=""
+                                                 srcset=""
+                                                 data-srcset="Content/wp-content/uploads/2021/01/@item.ImageUrl 358w, https://shoplamdep.haiphongweb.com/wp-content/uploads/2019/02/@item.ImageUrl-150x150.jpg 150w, https://shoplamdep.haiphongweb.com/wp-content/uploads/2019/02/@item.ImageUrl-300x300.jpg 300w, https://shoplamdep.haiphongweb.com/wp-content/uploads/2019/02/@item.ImageUrl-100x100.jpg 100w"
+                                                 sizes="(max-width: 358px) 100vw, 358px">
+                                        </a>
+                                        <div class="overlay fill"
+                                             style="background-color: rgba(255, 255, 255, 0.27)"></div>
+                                        <div class="image-tools absolute bottom left z-3">
+                                            <a href="/Home/AddToCart?Id=@item.ProductID&Name=@item.Name&ImageUrl=@item.ImageUrl&Price=@item.PriceSale"
+                                            @*<a href="/Home/AddToCart?Id=@item.ProductID&Name=@item.Name&ImageUrl=@item.ImageUrl&Price=@item.PriceSale"*@
+                                               class="button is-outline circle icon tooltip hide-for-small"
+                                               title="Thêm vào giỏ hàng">
+                                                <i class="fas fa-cart-plus"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="image-tools top right show-on-hover">
+                                    </div>
+                                    <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
+                                    </div>
+                                </div><!-- box-image -->
+
+                                <div class="box-text text-left">
+                                    <div class="title-wrapper">
+                                        <p class="category uppercase is-smaller no-text-overflow product-cat op-7">
+                                            @item.ProductType
+                                        </p>
+                                        <p class="name product-title">
+                                            <a href="san-pham/mascara-lam-day-va-toi-mi-maybelline-lash-sensational-10ml-lash-sensational-waterproof-mascara/index.htm">
+                                                @item.Name
+                                            </a>
+                                        </p>
+                                    </div>
+
+                                    <div class="price-wrapper">
+                                        @*<div class="pwb-brands-in-loop">
+                                            <span>
+                                                <a href="thuong-hieu/aleda/index.htm">
+                                                    <img width="120"
+                                                         height="60"
+                                                         src="Content/wp-content/themes/flatsome/assets/img/lazy.png"
+                                                         data-src="https://shoplamdep.haiphongweb.com/wp-content/uploads/2019/02/1538456535ALEDA_img_120x60_63ea52_fit_center.jpg"
+                                                         class="lazy-load attachment-thumbnail size-thumbnail"
+                                                         alt="">
+                                                </a>
+                                            </span>
+                                        </div>*@
+                                        <span class="price">
+                                            <del>
+                                                <span class="woocommerce-Price-amount amount">
+                                                    @item.Price<span class="woocommerce-Price-currencySymbol">&#8363;</span>
+                                                </span>
+                                            </del>
+                                            <ins>
+                                                <span class="woocommerce-Price-amount amount">
+                                                    @item.PriceSale<span class="woocommerce-Price-currencySymbol">&#8363;</span>
+                                                </span>
+                                            </ins>
+                                        </span>
+                                    </div>
+                                </div><!-- box-text -->
+                            </div><!-- box -->
+                        </div><!-- .col-inner -->
+                    </div><!-- col -->
+                }
+            }
+        </div>
+    </div><!-- .section-content -->
+
+
+    <style scope="scope">
+        #section_289245873 {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            background-color: rgb(245, 251, 246);
+        }
+    </style>
+</section>

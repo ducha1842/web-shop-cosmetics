@@ -1,0 +1,41 @@
+﻿@model List<ShopBanHang.Models.tblMenu_Web>
+@{ 
+    int i = 1;
+}
+<div class="flex-col hide-for-medium flex-center">
+    <ul class="nav header-nav header-bottom-nav nav-center  nav-uppercase">
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                if (item.ParentID == -1)
+                {
+                    <li id="menu-item-@i" class="menu-item menu-item-type-custom menu-item-object-custom  menu-item-41">
+                        <a href="~/@item.Url" class="nav-top-link">@item.Name</a>
+                    </li>
+                }
+                i++;
+            }
+        }
+        @*<li id="menu-item-37"
+            class="deal-hap-dan menu-item menu-item-type-custom menu-item-object-custom  menu-item-37">
+            <a href="#" class="nav-top-link">Deal hấp dẫn</a>
+        </li>
+        <li id="menu-item-41"
+            class="menu-item menu-item-type-custom menu-item-object-custom  menu-item-38">
+            <a href="#" class="nav-top-link">Thương hiệu</a>
+        </li>
+        <li id="menu-item-39"
+            class="menu-item menu-item-type-custom menu-item-object-custom  menu-item-39">
+            <a href="#" class="nav-top-link">Hàng mới về</a>
+        </li>
+        <li id="menu-item-40"
+            class="menu-item menu-item-type-custom menu-item-object-custom  menu-item-40">
+            <a href="#" class="nav-top-link">Sản phẩm bán chạy</a>
+        </li>
+        <li id="menu-item-900"
+            class="menu-item menu-item-type-taxonomy menu-item-object-category  menu-item-900">
+            <a href="bai-viet/tin-tuc/index.htm" class="nav-top-link">Tin tức</a>
+        </li>*@
+    </ul>
+</div>

@@ -1,0 +1,5 @@
+/** mega menu */
+
+#header.header.has-sticky .header-wrapper.stuck #mega_menu:not(.active) { */
+	display: none 
+} 

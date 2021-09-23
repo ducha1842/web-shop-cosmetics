@@ -1,0 +1,82 @@
+﻿@model IEnumerable<ShopBanHang.Models.tblProductCategory>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    int STT = 0;
+}
+
+<link rel="stylesheet" type="text/css"
+      href="~/Areas/Admin/assets/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css">
+<link rel="stylesheet" type="text/css"
+      href="~/Areas/Admin/assets/node_modules/datatables.net-bs4/css/responsive.dataTables.min.css">
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Danh mục sản phẩm</h4>
+                <a href="@Url.Action("Create","ProductCategory")" role="button" class="btn btn-info d-none d-lg-block m-l-15" style=" width: 100px;">Thêm mới</a>
+                <div class="table-responsive m-t-40">
+                    <table id="myTable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Tên danh mục</th>
+                                <th>Tên danh mục cha</th>
+                                <th>Hiển thị trên trang chủ</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                STT++;
+                                <tr>
+                                    <td>
+                                        <span>@STT</span>
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(model => item.Name)
+                                    </td>
+                                    <td>
+                                        @{
+                                            foreach (var newItem in Model)
+                                            {
+                                                if (item.ParentID == -1)
+                                                {
+                                                    <span>Menu Root</span>
+                                                    break;
+                                                }
+                                                else if (item.ParentID == newItem.ID)
+                                                {
+                                                    <span>@newItem.Name</span>
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (item.ShowOnHome == 1)
+                                        {
+                                            <span>Có hiển thị</span>
+                                        }
+                                        else
+                                        {
+                                            <span>Không hiển thị</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        <a href="@Url.Action("Edit", "ProductCategory" , new {id = item.ID })">Sửa</a> |
+                                        <a onclick="return confirm('Bạn có muốn xóa dữ liệu không?')" href="@Url.Action("Delete","ProductCategory",new { id = item.ID})">Xóa</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Content/assets/node_modules/jquery/jquery-3.2.1.min.js"></script>

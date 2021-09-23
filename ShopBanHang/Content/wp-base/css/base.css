@@ -1,0 +1,249 @@
+img.wp-smiley,
+img.emoji {
+    display: inline !important;
+    border: none !important;
+    box-shadow: none !important;
+    height: 1em !important;
+    width: 1em !important;
+    margin: 0 .07em !important;
+    vertical-align: -0.1em !important;
+    background: none !important;
+    padding: 0 !important;
+}
+
+.bg {
+    opacity: 0;
+    transition: opacity 1s;
+    -webkit-transition: opacity 1s;
+}
+.bg-loaded {
+    opacity: 1;
+}
+
+.product-gallery img.lazy-load,
+.product-small img.lazy-load,
+.product-small img[data-lazy-srcset]:not(.lazyloaded) {
+    padding-top: 100%;
+}
+
+
+
+
+/* Custom CSS Mobile */
+@media (max-width: 549px) {
+
+    .archive .category-page-row .large-9,
+    .archive .large-3,
+    .category-row .cot2,
+    .single-product .product .large-9,
+    .slider-row .cot2,
+    .slider-row .cot2 .large-9 {
+        flex-basis: 100% !important;
+        max-width: 100% !important
+    }
+
+    .blog-archive .large-3,
+    .category-row .cot1,
+    .category-row .cot2 .row-collapse .medium-4,
+    .category-row .section-title-normal,
+    .category-row .tieu-de-row .right ul li,
+    .footer-section .row2 .large-8,
+    .slider-row .cot1,
+    .slider-row .cot2 .large-3,
+    .slider-row .cot3,
+    .sticky-add-to-cart--active .sticky-add-to-cart__product {
+        display: none
+    }
+
+    .category-row .large-12 {
+        padding: 0
+    }
+
+    .thuong-hieu .row-thuong-hieu {
+        padding-top: 10px
+    }
+
+    .section-title-container {
+        padding: 0
+    }
+
+    .thuong-hieu .medium-3 {
+        flex-basis: 33.33%;
+        max-width: 33.33%;
+        padding: 0 3.8px 8.6px
+    }
+
+    .row-sp .product-small .box-text .product-title a {
+        font-size: 12px
+    }
+
+    .category-row .tieu-de-row .left,
+    .category-row .tieu-de-row .right {
+        width: 50%
+    }
+
+    .category-row .tieu-de-row .right ul li:last-child {
+        display: block !important
+    }
+
+    .archive .col.product-small,
+    .footer-section .large-8 .large-4 {
+        flex-basis: 50%;
+        max-width: 50%
+    }
+
+    .product-main {
+        margin: 0
+    }
+
+    .single-product .large-9 {
+        padding-right: 15px
+    }
+
+    .single-product .product-main .large-6,
+    .single-product .product-main .large-6 .large-10 {
+        padding-right: 0
+    }
+
+    a.devvn_buy_now_style {
+        width: 121px
+    }
+
+    .quantity+.button {
+        padding: .5px 12px
+    }
+
+    span.devvn_title {
+        font-size: 14px
+    }
+
+    .product-tabs li a {
+        padding: 6px 15px
+    }
+
+    .blog-archive .large-9 {
+        padding-right: 15px
+    }
+
+    .widget {
+        border: 0;
+        border-top: 0
+    }
+
+    .archive .category-page-row .large-9 {
+        padding-left: 15px !important
+    }
+}
+
+.label-new.menu-item>a:after {
+    content: "New";
+}
+
+.label-hot.menu-item>a:after {
+    content: "Hot";
+}
+
+.label-sale.menu-item>a:after {
+    content: "Sale";
+}
+
+.label-popular.menu-item>a:after {
+    content: "Popular";
+}
+
+
+.bottom-contact {
+    display: none
+}
+
+@media (max-width: 767px) {
+    .bottom-contact {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        background: white;
+        width: 100%;
+        z-index: 99;
+        box-shadow: 2px 1px 9px #0000008a;
+        border-top: 1px solid #eaeaea;
+    }
+
+    .bottom-contact ul li {
+        width: 25%;
+        margin-bottom: 0;
+        float: left;
+        list-style: none;
+        text-align: center;
+        font-size: 13.5px;
+    }
+
+    .bottom-contact ul li span {
+        color: black
+    }
+
+    .bottom-contact ul li img {
+        width: 35px;
+        margin-top: 3px;
+        margin-bottom: 0px;
+    }
+
+    .float-contact {
+        display: none
+    }
+}
+.float-contact {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 99999;
+}
+.chat-zalo {
+    background: #8eb22b;
+    border-radius: 20px;
+    padding: 0px 18px;
+    color: white;
+    display: block;
+    margin-bottom: 6px;
+}
+.chat-face {
+    background: #125c9e;
+    border-radius: 20px;
+    padding: 0px 18px;
+    color: white;
+    display: block;
+    margin-bottom: 6px;
+}
+.float-contact .hotline {
+    background: #d11a59 !important;
+    border-radius: 20px;
+    padding: 0 18px;
+    color: white;
+    display: block;
+    margin-bottom: 6px;
+}
+.chat-zalo a,
+.chat-face a,
+.hotline a {
+    font-size: 15px;
+    color: white;
+    font-weight: normal;
+    text-transform: none;
+    line-height: 0;
+}
+
+/***** START: hiding submit button of the price slider ******/
+.woof_price_search_container .price_slider_amount button.button {
+    display: none;
+}
+
+.woof_price_search_container .price_slider_amount .price_label {
+    text-align: left !important;
+}
+
+.woof .widget_price_filter .price_slider_amount .button {
+    float: left;
+}
+/***** END: hiding submit button of the price slider ******/
+.woof_edit_view {
+    display: none;
+}

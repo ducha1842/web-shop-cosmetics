@@ -1,0 +1,17 @@
+﻿@model List<ShopBanHang.Models.tblProductCategory>
+
+<div class="flex-col search-form-categories">
+    <select class="search_categories resize-select mb-0" name="product_cat">
+        <option value="" selected='selected'>All</option>
+        
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <option value="@item.MetaTitle">@item.Name</option>
+            }
+        }
+    </select>
+</div>
+
+
