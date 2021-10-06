@@ -20,7 +20,9 @@ namespace ShopBanHang.Controllers
         {
             //var model = db.tblProductCategories.Find(id);
             var category = new CategoryDao().ViewDetail(cateId);
-            return View(category);
+            ViewBag.Category = category;
+            var model = new ProductDao().ListByCategoryId(cateId);
+            return View(model);
         }
 
         public ActionResult Detail(long id)

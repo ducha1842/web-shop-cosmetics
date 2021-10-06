@@ -17,5 +17,15 @@ namespace ShopBanHang.Dao
         {
             return db.tblProducts.Find(id);
         }
+
+        /// <summary>
+        /// Get list product by ProductType
+        /// </summary>
+        /// <param name="categoryID"></param>
+        /// <returns></returns>
+        public  List<tblProduct> ListByCategoryId(long categoryID)
+        {
+            return db.tblProducts.Where(x => x.ProductType == categoryID).ToList();
+        }
     }
 }

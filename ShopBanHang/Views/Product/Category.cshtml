@@ -1,8 +1,190 @@
-﻿@model ShopBanHang.Models.tblProductCategory
+﻿@model List<ShopBanHang.Models.tblProduct>
 @{
-    ViewBag.Title = Model.Name;
+    var category = (ShopBanHang.Models.tblProductCategory)ViewBag.Category;
     Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
 
-<h2>@Model.Name</h2>
+<div class="shop-page-title category-page-title page-title ">
+    <div class="page-title-inner flex-row  medium-flex-wrap container">
+        <div class="flex-col flex-grow medium-text-center">
+            <h1 class="shop-page-title is-xlarge">@category.Name</h1>
+            <div class="is-small">
+                <nav class="woocommerce-breadcrumb breadcrumbs"><a href="~/">Trang chủ</a> <span class="divider">@category.Name</span> </nav>
+            </div>
+            <div class="category-filtering category-filter-row show-for-medium">
+                <a href="#" data-open="#shop-sidebar" data-visible-after="true" data-pos="left" class="filter-button uppercase plain">
+                    <i class="icon-menu"></i>
+                    <strong>Lọc</strong>
+                </a>
+                <div class="inline-block">
+                </div>
+            </div>
+        </div><!-- .flex-left -->
 
+        <div class="flex-col medium-text-center">
+            <p class="woocommerce-result-count hide-for-medium">
+                Hiển thị một kết quả duy nhất
+            </p>
+            <form class="woocommerce-ordering" method="get">
+                <select name="orderby" class="orderby" aria-label="Đơn hàng của cửa hàng">
+                    <option value="menu_order" selected="selected">Thứ tự mặc định</option>
+                    <option value="popularity">Thứ tự theo mức độ phổ biến</option>
+                    <option value="rating">Thứ tự theo điểm đánh giá</option>
+                    <option value="date">Mới nhất</option>
+                    <option value="price">Thứ tự theo giá: thấp đến cao</option>
+                    <option value="price-desc">Thứ tự theo giá: cao xuống thấp</option>
+                </select>
+                <input type="hidden" name="paged" value="1">
+            </form>
+        </div><!-- .flex-right -->
+    </div><!-- flex-row -->
+</div>
+
+<main id="main" class="">
+    <div class="row category-page-row">
+        <div class="col large-3 hide-for-medium ">
+            <div id="shop-sidebar" class="sidebar-inner col-inner">
+                <aside id="woof_widget-2" class="widget WOOF_Widget">
+                    <div class="widget widget-woof">
+                        <div class="woof woof_sid woof_sid_widget" data-sid="widget" data-shortcode="woof sid='widget' start_filtering_btn='0' price_filter='2' redirect='' ajax_redraw='1' " data-redirect="" data-autosubmit="1" data-ajax-redraw="1">
+
+                            <a href="#" class="woof_edit_view" data-sid="widget">show blocks helper</a>
+                            <div></div>
+
+                            <!--- here is possible drop html code which is never redraws by AJAX ---->
+
+                            <div class="woof_redraw_zone" data-woof-ver="2.1.7">
+                                <div data-css-class="woof_price2_search_container" class="woof_price2_search_container woof_container">
+                                    <div class="woof_container_overlay_item">
+
+                                    </div>
+                                    <div class="woof_container_inner">
+                                        <h4>Tìm khoảng giá</h4>
+                                        <div class="woof_price_filter_dropdown_container">
+                                            <select class="woof_price_filter_dropdown" style="        width: 228px;">
+                                                <option value="-1">Lọc theo giá thành</option>
+                                                <option value="0-50000">0₫ - 50.000₫</option>
+                                                <option value=" 50000-100000">50.000₫ - 100.000₫</option>
+                                                <option value=" 100000-500000">100.000₫ - 500.000₫</option>
+                                            </select>
+                                        </div>
+                                        @*<div class="chosen-container chosen-container-single" style="width: 198px;" title=""><a class="chosen-single" tabindex="-1"><span>filter by price</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off"></div><ul class="chosen-results"></ul></div></div>*@
+                                    </div>
+                                </div>
+
+                                <div data-css-class="woof_container_pwb-brand" class="woof_container woof_container_checkbox woof_container_pwb-brand woof_container_2 woof_container_thnghiu">
+                                    <div class="woof_container_overlay_item"></div>
+                                    <div class="woof_container_inner woof_container_inner_thnghiu">
+                                        <h4>
+                                            Thương hiệu	    
+                                            <a href="javascript: void(0);" title="toggle" class="woof_front_toggle woof_front_toggle_opened" data-condition="opened" style="margin-right: 5px" >+</a>
+                                        </h4>
+                                        <div class="woof_block_html_items woof_section_scrolled" style="max-height: 300px; display: block; overflow-y: auto;">
+                                            <ul class="woof_list woof_list_checkbox">
+                                                <li class="woof_term_36 ">
+                                                    <div class="icheckbox_flat-green" style="position: relative;"><input type="checkbox" id="woof_36_61504e686c0cd" class="woof_checkbox_term woof_checkbox_term_36" data-tax="pwb-brand" name="aleda" data-term-id="36" value="36" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div><label class="woof_checkbox_label " for="woof_36_61504e686c0cd">Aleda<span class="woof_checkbox_count">(2)</span></label>
+                                                    <input type="hidden" value="Aleda" data-anchor="woof_n_pwb-brand_aleda">
+
+                                                </li>
+                                                <li class="woof_term_38 ">
+                                                    <div class="icheckbox_flat-green" style="position: relative;"><input type="checkbox" id="woof_38_61504e686dd5a" class="woof_checkbox_term woof_checkbox_term_38" data-tax="pwb-brand" name="anessa" data-term-id="38" value="38" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div><label class="woof_checkbox_label " for="woof_38_61504e686dd5a">Anessa<span class="woof_checkbox_count">(1)</span></label>
+                                                    <input type="hidden" value="Anessa" data-anchor="woof_n_pwb-brand_anessa">
+
+                                                </li>
+                                                <li class="woof_term_37 ">
+                                                    <div class="icheckbox_flat-green" style="position: relative;"><input type="checkbox" id="woof_37_61504e686f996" class="woof_checkbox_term woof_checkbox_term_37" data-tax="pwb-brand" name="angela-gold" data-term-id="37" value="37" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div><label class="woof_checkbox_label" for="woof_37_61504e686f996">Angela Gold<span class="woof_checkbox_count">(1)</span></label>
+                                                    <input type="hidden" value="Angela Gold" data-anchor="woof_n_pwb-brand_angela-gold">
+
+                                                </li>
+                                                <li class="woof_term_41 ">
+                                                    <div class="icheckbox_flat-green" style="position: relative;"><input type="checkbox" id="woof_41_61504e6871cd2" class="woof_checkbox_term woof_checkbox_term_41" data-tax="pwb-brand" name="argussy" data-term-id="41" value="41" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div><label class="woof_checkbox_label " for="woof_41_61504e6871cd2">ARGUSSY<span class="woof_checkbox_count">(1)</span></label>
+                                                    <input type="hidden" value="ARGUSSY" data-anchor="woof_n_pwb-brand_argussy">
+
+                                                </li>
+                                                <li class="woof_term_47 ">
+                                                    <div class="icheckbox_flat-green" style="position: relative;"><input type="checkbox" id="woof_47_61504e6874b38" class="woof_checkbox_term woof_checkbox_term_47" data-tax="pwb-brand" name="cetaphil" data-term-id="47" value="47" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div><label class="woof_checkbox_label " for="woof_47_61504e6874b38">CETAPHIL<span class="woof_checkbox_count">(1)</span></label>
+                                                    <input type="hidden" value="CETAPHIL" data-anchor="woof_n_pwb-brand_cetaphil">
+
+                                                </li>
+                                                <li class="woof_term_48 ">
+                                                    <div class="icheckbox_flat-green" style="position: relative;"><input type="checkbox" id="woof_48_61504e6877001" class="woof_checkbox_term woof_checkbox_term_48" data-tax="pwb-brand" name="colly" data-term-id="48" value="48" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div><label class="woof_checkbox_label " for="woof_48_61504e6877001">COLLY<span class="woof_checkbox_count">(1)</span></label>
+                                                    <input type="hidden" value="COLLY" data-anchor="woof_n_pwb-brand_colly">
+
+                                                </li>
+                                                <li class="woof_term_49 ">
+                                                    <div class="icheckbox_flat-green" style="position: relative;"><input type="checkbox" id="woof_49_61504e6878021" class="woof_checkbox_term woof_checkbox_term_49" data-tax="pwb-brand" name="deborah-milano" data-term-id="49" value="49" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div><label class="woof_checkbox_label" for="woof_49_61504e6878021">DEBORAH MILANO<span class="woof_checkbox_count">(1)</span></label>
+                                                    <input type="hidden" value="DEBORAH MILANO" data-anchor="woof_n_pwb-brand_deborah-milano">
+
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <input type="hidden" name="woof_t_pwb-brand" value="Brands"><!-- for red button search nav panel -->
+                                    </div>
+                                </div>
+                                <div class="woof_submit_search_form_container">
+                                    <button style="float: left;" class="button woof_submit_search_form">Lọc tìm sản phẩm</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div><!-- .sidebar-inner -->
+        </div><!-- #shop-sidebar -->
+
+        <div class="col large-9">
+            <div class="shop-container">
+                <div class="woocommerce-notices-wrapper"></div>
+                <div class="woof_products_top_panel" style="display: none;"></div>
+                
+                <div class="products row row-small large-columns-6 medium-columns-3 small-columns-2 has-equal-box-heights equalize-box">
+
+                    @foreach (var item in Model)
+                    {
+                        var link = "/san-pham/" + item.Description + "-" + item.ProductID;
+                        <div class="product-small col has-hover product type-product post-273 status-publish first instock product_cat-cham-soc-da-mat has-post-thumbnail sale shipping-taxable purchasable product-type-simple">
+                            <div class="col-inner">
+                                <div class="badge-container absolute left top z-1">
+                                    <div class="callout badge badge-square"><div class="badge-inner secondary on-sale"><span class="onsale">@item.Sale%</span></div></div>
+                                </div>
+
+                                <div class="product-small box ">
+                                    <div class="box-image">
+                                        <div class="image-zoom">
+                                            <a href="@link">
+                                                <img width="300" height="300" src="~/Content/wp-content/uploads/2021/01/@item.ImageUrl" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="~/Content/wp-content/uploads/2021/01/@item.ImageUrl 300w, ~/Content/wp-content/uploads/2021/01/@item.ImageUrl 150w, ~/Content/wp-content/uploads/2021/01/@item.ImageUrl 600w, ~/Content/wp-content/uploads/2021/01/@item.ImageUrl 100w" sizes="(max-width: 300px) 100vw, 300px">
+                                            </a>
+                                        </div>
+                                        <div class="image-tools is-small top right show-on-hover"></div>
+                                        <div class="image-tools is-small hide-for-small bottom left show-on-hover"></div>
+                                        <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover"></div>
+                                    </div><!-- box-image -->
+                                    <div class="box-text box-text-products">
+                                        <div class="title-wrapper">
+                                            @*<p class="category uppercase is-smaller no-text-overflow product-cat op-7">
+                                                Chăm sóc da mặt
+                                            </p>*@
+                                            <p class="name product-title" style="height: 40px;">
+                                                <a href="@link">@item.Name</a>
+                                            </p>
+                                        </div>
+                                        <div class="price-wrapper" style="height: 77px;">
+                                            @*<div class="pwb-brands-in-loop">
+                                                <span>
+                                                    <a href="https://shoplamdep.haiphongweb.com/thuong-hieu/aleda/"><img width="120" height="60" src="https://shoplamdep.haiphongweb.com/wp-content/uploads/2019/02/1538456535ALEDA_img_120x60_63ea52_fit_center.jpg" class="attachment-thumbnail size-thumbnail" alt=""></a>
+                                                </span>
+                                            </div>*@
+                                            <span class="price"><del><span class="woocommerce-Price-amount amount">@item.Price<span class="woocommerce-Price-currencySymbol">₫</span></span></del> <ins><span class="woocommerce-Price-amount amount">@item.PriceSale<span class="woocommerce-Price-currencySymbol">₫</span></span></ins></span>
+                                        </div>
+                                    </div><!-- box-text -->
+                                </div><!-- box -->
+                            </div><!-- .col-inner -->
+                        </div><!-- col -->
+                    }
+
+                </div><!-- row -->
+            </div><!-- shop container -->
+        </div>
+    </div>
+
+</main>

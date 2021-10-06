@@ -390,7 +390,7 @@
                                                 </div>
                                             </div>
                                             <div class="quantity buttons_added">
-                                                <label class="screen-reader-text"
+                                                @*<label class="screen-reader-text"
                                                        for="quantity_5e8ab1c8db65e">
                                                     @Model.Name
                                                 </label>
@@ -399,14 +399,14 @@
                                                        class="input-text qty text" step="1" min="1" max="9999"
                                                        name="quantity" value="1" title="SL" size="4"
                                                        inputmode="numeric">
-                                                <input type="button" value="+" class="plus button is-form">
+                                                <input type="button" value="+" class="plus button is-form">*@
                                             </div>
 
                                             @*<button type="submit" name="add-to-cart" value="279" class="single_add_to_cart_button button alt">
                                                     Thêm vào giỏ hàng
                                             </button>*@
 
-                                            <a href="/Product/AddToCart?Id=@Model.ProductID&Name=@Model.Name&ImageUrl=@Model.ImageUrl&Price=@Model.PriceSale&Quantity=2" class="single_add_to_cart_button button alt" style="margin-bottom: 2em;">
+                                            <a href="/Product/AddToCart?Id=@Model.ProductID&Name=@Model.Name&ImageUrl=@Model.ImageUrl&Price=@Model.PriceSale&Quantity=1" class="single_add_to_cart_button button alt" style="margin-bottom: 2em;">
                                                 Thêm vào giỏ hàng
                                             </a>
                                         
@@ -417,7 +417,7 @@
                                     </div>
                                 </form>
 
-                                <div class="product_meta">
+                                @*<div class="product_meta">
                                     <span class="posted_in">
                                         Danh mục: <a href="..\..\danh-muc-san-pham\cham-soc-toc\index.htm" rel="tag">
                                             Chăm
@@ -425,8 +425,8 @@
                                         </a>, <a href="..\..\danh-muc-san-pham\trang-diem\index.htm"
                                                  rel="tag">Trang điểm</a>
                                     </span>
-                                </div>
-                                <div class="social-icons share-icons share-row relative">
+                                </div>*@
+                                @*<div class="social-icons share-icons share-row relative">
                                     <a href="whatsapp://send?text=Combo%202%20Son%20Kem%20L%C3%AC%202%20%C4%90%E1%BA%A7u%20LEMONADE%2001%20Sugar%20%2B%2005%20Tea%20Perfect%20Couple%20Lip - https://shoplamdep.haiphongweb.com/san-pham/combo-2-son-kem-li-2-dau-lemonade-01-sugar-05-tea-perfect-couple-lip/"
                                        data-action="share/whatsapp/share"
                                        class="icon button circle is-outline tooltip whatsapp show-for-medium"
@@ -456,7 +456,7 @@
                                            rel="noopener noreferrer nofollow" target="_blank"
                                            class="icon button circle is-outline tooltip linkedin"
                                            title="Share on LinkedIn"><i class="icon-linkedin"></i></a>
-                                </div>
+                                </div>*@
                             </div><!-- .summary -->
                         </div><!-- .row -->
                     </div><!-- .product-main -->

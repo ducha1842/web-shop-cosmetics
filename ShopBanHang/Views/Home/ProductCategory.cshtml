@@ -10,14 +10,43 @@
 
                 @if (Model != null)
                 {
-                    foreach (var item in Model)
+                    foreach (var item in Model.Where(x => x.ParentID == -1))
                     {
-                        <li id="menu-item-@item.ID" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-26">
-                            <a href="danh-muc-san-pham/@item.MetaTitle-@item.ID"> @item.Name </a>
+                        var child = Model.Where(x => x.ParentID == item.ID);
+                        var parentClass = child.Count() > 0 ? "menu-item-has-children" : "";
+
+                        <li id="menu-item-@item.ID" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-@item.ID @parentClass">
+                            <a href="/danh-muc-san-pham/@item.MetaTitle-@item.ID"> @item.Name </a>
+                            @if (child.Count() > 0)
+                             {
+                                <ul class="sub-menu">
+                                    @foreach (var childItem in child)
+                                    {
+                                        var babychild = Model.Where(x => x.ParentID == childItem.ID);
+
+                                        <li id="menu-item-@childItem.ID" class="sp-ban-chay menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
+                                            <a href="/danh-muc-san-pham/@childItem.MetaTitle-@childItem.ID">@childItem.Name</a>
+
+                                            <ul class="sub-menu">
+                                                @if (babychild.Count() > 0)
+                                                {
+                                                    foreach (var babychildItem in babychild)
+                                                    {
+                                                        <li id="menu-item-@babychildItem.ID"
+                                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-@babychildItem.ID">
+                                                            <a href="/danh-muc-san-pham/@babychildItem.MetaTitle-@babychildItem.ID">@babychildItem.Name</a>
+                                                        </li>
+                                                    }
+                                                }
+                                            </ul>
+
+                                        </li>
+                                    }
+                                </ul>
+                             }
                         </li>
                     }
                 }
-
         @*
 
         <li id="menu-item-31" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-31">
